@@ -1,6 +1,9 @@
 import { Button } from "components/Button/Button"
 import { LP_GRID_ITEMS } from "../lp-items"
 import { Metadata } from 'next'
+import { PreloadResources } from "./preload-resources"
+
+import "../styles/tailwind.css"
  
 export const metadata: Metadata = {
   title: 'My Page Title',
@@ -30,10 +33,18 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="en"
+    className="h-full scroll-smooth bg-white antialiased [font-feature-settings:'ss01']"
+    >
       <body
         // suppressHydrationWarning={true}
+        className="flex h-full flex-col"
       >
+         <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Lexend:wght@400;500&display=swap"
+        />
+        <PreloadResources />
         {children}
       </body>
     </html>
