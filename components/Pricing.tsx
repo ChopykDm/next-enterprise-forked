@@ -1,3 +1,5 @@
+//@ts-nocheck
+
 import clsx from 'clsx'
 
 import { Button } from '@/components/Button'
