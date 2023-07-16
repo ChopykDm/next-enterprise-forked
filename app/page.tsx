@@ -14,8 +14,7 @@ export default function Page() {
     <Header />
       <main>
         <Hero />
-        {/* <Hero />
-        <PrimaryFeatures />
+       {/* <PrimaryFeatures />
         <SecondaryFeatures />
         <CallToAction />
         <Testimonials />
