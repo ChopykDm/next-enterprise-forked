@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     "Most bookkeeping software is accurate, but hard to use. We make the opposite trade-off, and hope you don’t get audited.",
 }
 
-export default function Page() {
+export default function Page({ params: { lng } }) {
   return (
     <>
     <Header />

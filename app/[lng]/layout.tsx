@@ -1,10 +1,12 @@
 import { Button } from "components/Button/Button"
-import { LP_GRID_ITEMS } from "../lp-items"
+import { LP_GRID_ITEMS } from "../../lp-items"
 import { Metadata } from 'next'
 import { PreloadResources } from "./preload-resources"
+import { dir } from 'i18next'
 
-import "../styles/tailwind.css"
- 
+import "../../styles/tailwind.css"
+import { languages } from "@/i18n/settings"
+
 export const metadata: Metadata = {
   title: 'My Page Title',
   openGraph: {
@@ -27,14 +29,26 @@ export const metadata: Metadata = {
   },
 }
 
+export async function generateStaticParams() {
+  return languages.map((lng) => ({ lng }))
+}
+
 export default function RootLayout({
   children,
+  params: {
+    lng
+  }
 }: {
-  children: React.ReactNode
+  children: React.ReactNode,
+  params: {
+    lng: string
+  }
 }) {
   return (
-    <html lang="en"
-    className="h-full scroll-smooth bg-white antialiased [font-feature-settings:'ss01']"
+    <html
+      lang={lng}
+      dir={dir(lng)}
+      className="h-full scroll-smooth bg-white antialiased [font-feature-settings:'ss01']"
     >
       <body
         // suppressHydrationWarning={true}
