@@ -5,9 +5,7 @@ import { Popover, Transition } from '@headlessui/react'
 import { MobileNavLink } from './MobileNavLink'
 import { MobileNavIcon } from './MobileNavIcon'
 import { getHeaderLeftNavItems, getHeaderRightNavItems } from '@/data/navItems';
-import { TFunction } from 'i18next';
 import { useTranslation } from '@/i18n/client';
-import { useAppStore } from '@/store/appStore';
 import { Locales } from '@/i18n/settings';
 
 export const MobileNavigation: React.FC<{
