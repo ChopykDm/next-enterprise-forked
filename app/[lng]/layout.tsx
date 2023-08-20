@@ -6,6 +6,7 @@ import { dir } from 'i18next'
 
 import "../../styles/tailwind.css"
 import { languages } from "@/i18n/settings"
+import { useAppStore } from "@/store/appStore"
 
 export const metadata: Metadata = {
   title: 'My Page Title',
@@ -44,6 +45,8 @@ export default function RootLayout({
     lng: string
   }
 }) {
+  useAppStore.setState({ lang: lng });
+
   return (
     <html
       lang={lng}
@@ -54,7 +57,7 @@ export default function RootLayout({
         // suppressHydrationWarning={true}
         className="flex h-full flex-col"
       >
-         <link
+        <link
           rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Lexend:wght@400;500&display=swap"
         />

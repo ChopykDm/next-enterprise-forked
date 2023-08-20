@@ -1,8 +1,8 @@
 import { CallToAction } from "@/components/CallToAction"
 import { Faqs } from "@/components/Faqs"
 import { Footer } from "@/components/Footer"
-import { Header } from "@/components/Header"
-import { Hero } from "@/components/Hero"
+import { Header } from "@/components/Header/server"
+import { Hero } from "@/components/Hero/server"
 import { Pricing } from "@/components/Pricing"
 import { PrimaryFeatures } from "@/components/PrimaryFeatures"
 import { SecondaryFeatures } from "@/components/SecondaryFeatures"
@@ -15,12 +15,13 @@ export const metadata: Metadata = {
     "Most bookkeeping software is accurate, but hard to use. We make the opposite trade-off, and hope you don’t get audited.",
 }
 
+// @ts-ignore
 export default function Page({ params: { lng } }) {
   return (
     <>
-    <Header />
+    <Header lng={lng} />
       <main>
-        <Hero />
+        <Hero lng={lng} />
         <PrimaryFeatures />
         <SecondaryFeatures />
         <CallToAction />
