@@ -1,7 +1,3 @@
-// exmaple: https://clutch.co/
-
-import { useId } from "react";
-
 export enum ServiceCategory {
   Engineering = 'Engineering',
   Optimization = 'Optimization',
@@ -29,9 +25,9 @@ export type Service = {
 export const services: ServiceBlock[] = [
   {
     category: ServiceCategory.Engineering,
-    title: 'Solution Engineering',
-    summary: 'From Concept to Code: Crafting Tomorrow\'s Premier Digital Experiences.',
-    description: 'Tailored technological solutions from web and mobile app development to UI/UX design, ensuring your digital platforms are cutting-edge and user-centric.',
+    title: 'category.engineering.title',
+    summary: 'category.engineering.summary',
+    description: 'category.engineering.description',
     services: [
       {
         title: 'Web Development',
@@ -67,9 +63,9 @@ export const services: ServiceBlock[] = [
   },
   {
     category: ServiceCategory.Optimization,
-    title: 'Consulting',
-    summary: 'Maximizing Potential, Elevating Every Digital Interaction to Excellence.',
-    description: 'Elevate your existing digital assets through comprehensive audits, modernization efforts, and enhancements aimed at increasing usability, accessibility, and search visibility.',
+    title: 'category.optimization.title',
+    summary: 'category.optimization.summary',
+    description: 'category.optimization.description',
     services: [
       {
         title: 'UI/UX Audit',
@@ -99,9 +95,9 @@ export const services: ServiceBlock[] = [
   },
   {
     category: ServiceCategory.Advisory,
-    title: 'UI & UX Design',
-    summary: 'Navigating the Future: Expert Guidance for Your Next Tech Endeavor.',
-    description: 'Expert counsel on safeguarding your operations, strategizing cloud migration, and leveraging technology to its fullest potential to meet your business goals.',
+    title: 'category.advisory.title',
+    summary: 'category.advisory.summary',
+    description: 'category.advisory.description',
     services: [
       {
         title: 'Technology Consulting',

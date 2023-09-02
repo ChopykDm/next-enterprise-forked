@@ -9,27 +9,33 @@ import { SecondaryFeatures } from "@/components/SecondaryFeatures"
 import { Services } from "@/components/Services/Services"
 import { Testimonials } from "@/components/Testimonials"
 import { Metadata } from "next"
+import { Suspense } from "react"
+import Loading from "./loading"
 
+
+// TODO: add metadata localization
 export const metadata: Metadata = {
-  title: "TaxPal - Accounting made simple for small businesses",
+  title: "Chopyk Agency Building Tomorrow's Online Experiences",
   description:
-    "Most bookkeeping software is accurate, but hard to use. We make the opposite trade-off, and hope you don’t get audited.",
+    "Innovative Design, Robust Development, and Continuous Support to Bring Your Digital Vision to Life",
 }
 
 // @ts-ignore
 export default function Page({ params: { lng } }) {
   return (
     <>
-    <Header lng={lng} />
+      <Header lng={lng} />
       <main>
-        <Hero lng={lng} />
-        <Services />
-        <PrimaryFeatures />
-        <SecondaryFeatures />
-        <CallToAction />
-        <Testimonials />
-        <Pricing />
-        <Faqs />
+        <Suspense fallback={<Loading />}>
+          <Hero lng={lng} />
+          <Services lng={lng}/>
+          {/* <PrimaryFeatures />
+          <SecondaryFeatures /> */}
+          <CallToAction />
+          {/* <Testimonials /> */}
+          <Pricing />
+          <Faqs />
+        </Suspense>
       </main>
       <Footer />
     </>

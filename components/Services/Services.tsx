@@ -1,12 +1,13 @@
 'use client';
 
-//@ts-nocheck
 import clsx from 'clsx'
 import { useId } from 'react'
 
 import { Container } from '@/components/Container'
 import { ServiceBlock, ServiceCategory, services, Service as ServiceType } from '@/data/services';
-import { R } from '@storybook/react/dist/types-0a347bb9';
+import { Locales } from '@/i18n/settings';
+import { useTranslation } from '@/i18n/client';
+import { useAppStore } from '@/store/appStore';
 
 function ReportingIcon() {
   const id = useId()
@@ -83,11 +84,17 @@ function ServiceBlock({ serviceBlock, className, ...props }: {
   serviceBlock: ServiceBlock
   className?: string
 }) {
+  const lang = useAppStore.getState().lang;
+  const { t } = useTranslation(lang, 'services');
   const ServiceIcon = serviceIcons[serviceBlock.category];
 
   return (
-    <div
-      className={clsx(className)}
+    <button
+      className={clsx(
+        className,
+        "relative text-left rounded-2xl bg-white p-6 shadow-xl shadow-slate-900/10 transition ease-in-out delay-150 cursor-pointer hover:-translate-y-1 hover:scale-110 duration-300",
+        //"focus:-translate-y-1 focus:scale-110"
+        )}
       {...props}
     >
       <div
@@ -106,28 +113,34 @@ function ServiceBlock({ serviceBlock, className, ...props }: {
           'text-primary-600'
         )}
       >
-        {serviceBlock.title}
+        {t(serviceBlock.title)}
       </h3>
-      <p className="mt-2 font-display text-xl text-slate-900">
-        {serviceBlock.summary}
-      </p>
-      <p className="mt-4 text-sm text-slate-600">{serviceBlock.description}</p>
-      <p className="mt-4 text-sm text-slate-600">
+      {serviceBlock.summary && (
+        <p className="mt-2 font-display text-xl text-slate-900">
+          {t(serviceBlock.summary)}
+        </p>
+      )}
+      {serviceBlock.description && (
+        <p className="mt-4 text-sm text-slate-600">
+          {t(serviceBlock.description)}
+        </p>
+      )}
+      <div className="mt-4 text-sm text-slate-600">
         <ul className='list-disc list-inside'>
           {serviceBlock.services.map((service) => (
-            <li key={service.title}>
-              <Service service={service} />
-            </li>
+            <Service key={service.title} service={service} />
           ))}
         </ul>
-      </p>
-    </div>
+      </div>
+    </button>
   )
 }
 
 export const Service: React.FC<{ service: ServiceType }> = ({ service }) => {
   return (
-    service.title
+    <li>
+      {service.title}
+    </li>
   );
 }
 
@@ -156,35 +169,36 @@ export const Service: React.FC<{ service: ServiceType }> = ({ service }) => {
 
 function ServicesDesktop() {
   return (
-    <div className="lg:mt-20 flex gap-4 flex-wrap md:flex-nowrap">
-          {services.map((serviceBlock, serviceIndex) => (
-            <ServiceBlock
-              key={serviceBlock.category}
-              serviceBlock={serviceBlock}
-              className="relative"
-            />
-          ))}
+    <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-6 sm:gap-8 lg:mt-20 lg:max-w-none lg:grid-cols-3">
+      {services.map((serviceBlock, serviceIndex) => (
+        <ServiceBlock
+          key={serviceBlock.category}
+          serviceBlock={serviceBlock}
+          className="relative"
+        />
+      ))}
     </div>
   )
 }
 
-export function Services() {
+export function Services({ lng }: { lng: Locales }) {
+  const { t } = useTranslation(lng, 'services');
+
   return (
     <section
       id="secondary-features"
       aria-label="Features for simplifying everyday business tasks"
-      className="pb-14 pt-20 sm:pb-20 sm:pt-32 lg:pb-32"
+      className="pb-14 pt-20 sm:pb-20 sm:pt-32 lg:pb-32 bg-slate-50"
     >
       <Container>
         <div className="mx-auto max-w-2xl md:text-center">
           <h2 className="font-display text-3xl tracking-tight text-slate-900 sm:text-4xl">
-            Our Expertise at Your Service
+            {t('title')}
           </h2>
           <p className="mt-4 text-lg tracking-tight text-slate-700">
-            Discover a range of digital services tailored to elevate your business in today's interconnected world.
+            {t('subtitle')}
           </p>
         </div>
-        {/* <ServicesMobile /> */}
         <ServicesDesktop />
       </Container>
     </section>

@@ -1,0 +1,16 @@
+{
+  "title": "Our Expertise at Your Service",
+  "subtitle": "Discover a range of digital services tailored to elevate your business in today's interconnected world.",
+  
+  "category.engineering.title": "Solution Engineering",
+  "category.engineering.summary": "From Concept to Code: Crafting Tomorrow's Premier Digital Experiences.",
+  "category.engineering.description": "Tailored technological solutions from web and mobile app development to UI/UX design, ensuring your digital platforms are cutting-edge and user-centric.",
+  
+  "category.optimization.title": "Optimization",
+  "category.optimization.summary": "Maximizing Potential, Elevating Every Digital Interaction to Excellence.",
+  "category.optimization.description": "Elevate your existing digital assets through comprehensive audits, modernization efforts, and enhancements aimed at increasing usability, accessibility, and search visibility.",
+  
+  "category.advisory.title": "Consulting",
+  "category.advisory.summary": "Navigating the Future: Expert Guidance for Your Next Tech Endeavor.",
+  "category.advisory.description": "Expert counsel on safeguarding your operations, strategizing cloud migration, and leveraging technology to its fullest potential to meet your business goals."
+}
