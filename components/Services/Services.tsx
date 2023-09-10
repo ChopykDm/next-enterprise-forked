@@ -4,10 +4,12 @@ import clsx from 'clsx'
 import { useId } from 'react'
 
 import { Container } from '@/components/Container'
-import { ServiceBlock, ServiceCategory, services, Service as ServiceType } from '@/data/services';
+import { ServiceBlock as ServiceBlockType, ServiceCategory, services, Service as ServiceType } from '@/data/services';
 import { Locales } from '@/i18n/settings';
 import { useTranslation } from '@/i18n/client';
 import { useAppStore } from '@/store/appStore';
+import { size } from 'lodash';
+import { Bandge } from '@/UIComponents/Badge';
 
 function ReportingIcon() {
   const id = useId()
@@ -81,7 +83,7 @@ const serviceIcons: Record<ServiceCategory, React.ComponentType> = {
 };
 
 function ServiceBlock({ serviceBlock, className, ...props }: {
-  serviceBlock: ServiceBlock
+  serviceBlock: ServiceBlockType
   className?: string
 }) {
   const lang = useAppStore.getState().lang;
@@ -89,15 +91,15 @@ function ServiceBlock({ serviceBlock, className, ...props }: {
   const ServiceIcon = serviceIcons[serviceBlock.category];
 
   return (
-    <button
+    <div
       className={clsx(
         className,
-        "relative text-left rounded-2xl bg-white p-6 shadow-xl shadow-slate-900/10 transition ease-in-out delay-150 cursor-pointer hover:-translate-y-1 hover:scale-110 duration-300",
+        "relative text-left text-white bg-black p-6 rounded-2xl",
         //"focus:-translate-y-1 focus:scale-110"
         )}
       {...props}
     >
-      <div
+      {/* <div
         className={clsx(
           'w-9 rounded-lg',
           'bg-slate-500'
@@ -106,39 +108,48 @@ function ServiceBlock({ serviceBlock, className, ...props }: {
         <svg aria-hidden="true" className="h-9 w-9" fill="none">
           <ServiceIcon />
         </svg>
-      </div>
-      <h3
-        className={clsx(
-          'mt-6 text-sm font-medium',
-          'text-primary-600'
-        )}
+      </div> */}
+      <Bandge
+        style={{
+          background: 'rgb(188, 122, 249)',
+        }}
+        className="text-black uppercase"
       >
-        {t(serviceBlock.title)}
-      </h3>
+        <h3
+          // style={{
+          //   color: 'rgb(166, 255, 150)',
+          // }}
+          // className={clsx(
+          //   'mt-6 text-sm font-medium',
+          // )}
+        >
+          {t(serviceBlock.title)}
+        </h3>
+      </Bandge>
       {serviceBlock.summary && (
-        <p className="mt-2 font-display text-xl text-slate-900">
+        <p className="mt-2 font-display text-xl text-white">
           {t(serviceBlock.summary)}
         </p>
       )}
       {serviceBlock.description && (
-        <p className="mt-4 text-sm text-slate-600">
+        <p className="mt-4 text-sm text-white">
           {t(serviceBlock.description)}
         </p>
       )}
-      <div className="mt-4 text-sm text-slate-600">
+      <div className="mt-4 text-sm text-white">
         <ul className='list-disc list-inside'>
           {serviceBlock.services.map((service) => (
             <Service key={service.title} service={service} />
           ))}
         </ul>
       </div>
-    </button>
+    </div>
   )
 }
 
 export const Service: React.FC<{ service: ServiceType }> = ({ service }) => {
   return (
-    <li>
+    <li className=''>
       {service.title}
     </li>
   );
@@ -169,7 +180,7 @@ export const Service: React.FC<{ service: ServiceType }> = ({ service }) => {
 
 function ServicesDesktop() {
   return (
-    <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-6 sm:gap-8 lg:mt-20 lg:max-w-none lg:grid-cols-3">
+    <div className="mx-auto mt-16 grid gap-6 max-w-2xl grid-cols-1 lg:mt-20 lg:max-w-none lg:grid-cols-3">
       {services.map((serviceBlock, serviceIndex) => (
         <ServiceBlock
           key={serviceBlock.category}
@@ -186,16 +197,23 @@ export function Services({ lng }: { lng: Locales }) {
 
   return (
     <section
+      style={{
+        background: 'rgb(166, 255, 150)',
+        color: 'black',
+      }}
       id="secondary-features"
       aria-label="Features for simplifying everyday business tasks"
-      className="pb-14 pt-20 sm:pb-20 sm:pt-32 lg:pb-32 bg-slate-50"
+      className="pb-14 pt-20 sm:pb-20 sm:pt-32 lg:pb-32"
     >
       <Container>
-        <div className="mx-auto max-w-2xl md:text-center">
-          <h2 className="font-display text-3xl tracking-tight text-slate-900 sm:text-4xl">
+        <div className="mx-auto max-w-2xl md:text-center text-black">
+          <h2 style={{
+            fontSize: 'clamp(54px, 5.9vw, 80px)',
+          }}
+          className="font-display text-3xl tracking-tight sm:text-4xl text-black">
             {t('title')}
           </h2>
-          <p className="mt-4 text-lg tracking-tight text-slate-700">
+          <p className="mt-4 text-lg tracking-tight text-black">
             {t('subtitle')}
           </p>
         </div>
