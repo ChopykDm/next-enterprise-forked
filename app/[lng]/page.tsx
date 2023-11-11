@@ -11,6 +11,8 @@ import { Testimonials } from "@/components/Testimonials"
 import { Metadata } from "next"
 import { Suspense } from "react"
 import Loading from "./loading"
+import { ContactUs } from "@/components/ContactUs/Faqs"
+import { MainWrapper } from "@/components/MainWrapper"
 
 
 // TODO: add metadata localization
@@ -18,6 +20,12 @@ export const metadata: Metadata = {
   title: "Chopyk Agency Building Tomorrow's Online Experiences",
   description:
     "Innovative Design, Robust Development, and Continuous Support to Bring Your Digital Vision to Life",
+}
+
+
+const colors = {
+  '30': [166, 255, 150],
+  '38': [19, 117, 71],
 }
 
 // @ts-ignore
@@ -28,13 +36,18 @@ export default function Page({ params: { lng } }) {
       <main>
         <Suspense fallback={<Loading />}>
           <Hero lng={lng} />
-          <Services lng={lng}/>
-          {/* <PrimaryFeatures />
-          <SecondaryFeatures /> */}
-          <CallToAction />
-          {/* <Testimonials /> */}
-          <Pricing />
-          <Faqs />
+          <MainWrapper>
+            <Services lng={lng}/>
+            {/* <PrimaryFeatures />
+            <SecondaryFeatures /> */}
+            <CallToAction />
+            <CallToAction />
+            {/* <Testimonials /> */}
+            {/* <Pricing /> */}
+            {/* <Faqs /> */}
+            {/* Contact Us */}
+            <ContactUs />
+          </MainWrapper>
         </Suspense>
       </main>
       <Footer />

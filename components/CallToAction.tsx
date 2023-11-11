@@ -1,40 +1,40 @@
-//@ts-nocheck
-
-
-import Image from 'next/image'
-
 import { Button } from '@/components/Button'
 import { Container } from '@/components/Container'
-import backgroundImage from '@/images/background-call-to-action.jpg'
+import { useTranslation } from '@/i18n';
+import { useAppStore } from '@/store/appStore';
+// import backgroundImage from '@/images/background-call-to-action.jpg'
 
-export function CallToAction() {
+export async function CallToAction() {
+  const lang = useAppStore.getState().lang;
+  const { t } = await useTranslation(lang, 'callToAction');
+
   return (
-    <section
+    <div
       id="get-started-today"
-      className="relative overflow-hidden bg-primary-600 py-32"
-    >
-      <Image
+      style={{ border: '1px solid black' }}
+      className="relative overflow-hidden py-32"
+      >
+      {/* <Image
         className="absolute left-1/2 top-1/2 max-w-none -translate-x-1/2 -translate-y-1/2"
         src={backgroundImage}
         alt=""
         width={2347}
         height={1244}
         unoptimized
-      />
+      /> */}
       <Container className="relative">
         <div className="mx-auto max-w-lg text-center">
           <h2 className="font-display text-3xl tracking-tight text-white sm:text-4xl">
-            Get started today
+            {t('title')}
           </h2>
           <p className="mt-4 text-lg tracking-tight text-white">
-            It’s time to take control of your books. Buy our software so you can
-            feel like you’re doing something productive.
+            {t('subtitle')}
           </p>
           <Button href="/register" color="white" className="mt-10">
-            Get 6 months free
+            {t('button')}
           </Button>
         </div>
       </Container>
-    </section>
+    </div>
   )
 }

@@ -8,7 +8,6 @@ import { ServiceBlock as ServiceBlockType, ServiceCategory, services, Service as
 import { Locales } from '@/i18n/settings';
 import { useTranslation } from '@/i18n/client';
 import { useAppStore } from '@/store/appStore';
-import { size } from 'lodash';
 import { Bandge } from '@/UIComponents/Badge';
 
 function ReportingIcon() {
@@ -113,7 +112,7 @@ function ServiceBlock({ serviceBlock, className, ...props }: {
         style={{
           background: 'rgb(188, 122, 249)',
         }}
-        className="text-black uppercase"
+        className="text-black uppercase text-lg"
       >
         <h3
           // style={{
@@ -132,11 +131,11 @@ function ServiceBlock({ serviceBlock, className, ...props }: {
         </p>
       )}
       {serviceBlock.description && (
-        <p className="mt-4 text-sm text-white">
+        <p className="mt-4 text-base text-white">
           {t(serviceBlock.description)}
         </p>
       )}
-      <div className="mt-4 text-sm text-white">
+      <div className="mt-4 text-base text-white">
         <ul className='list-disc list-inside'>
           {serviceBlock.services.map((service) => (
             <Service key={service.title} service={service} />
@@ -198,7 +197,6 @@ export function Services({ lng }: { lng: Locales }) {
   return (
     <section
       style={{
-        background: 'rgb(166, 255, 150)',
         color: 'black',
       }}
       id="secondary-features"
@@ -213,7 +211,7 @@ export function Services({ lng }: { lng: Locales }) {
           className="font-display text-3xl tracking-tight sm:text-4xl text-black">
             {t('title')}
           </h2>
-          <p className="mt-4 text-lg tracking-tight text-black">
+          <p className="mt-4 text-2xl tracking-tight text-black">
             {t('subtitle')}
           </p>
         </div>

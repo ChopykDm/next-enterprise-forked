@@ -5,3 +5,8 @@
 #__next {
   min-height: 100%;
 }
+
+
+.bg-transition {
+  transition: background 2s ease;
+}
