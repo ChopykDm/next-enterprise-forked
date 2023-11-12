@@ -37,6 +37,8 @@ module.exports = {
       fontFamily: {
         sans: ['Inter', ...defaultTheme.fontFamily.sans],
         display: ['Lexend', ...defaultTheme.fontFamily.sans],
+        sourcecodepro: ["var(--font-sourcecodepro)"],
+        notosans: ["var(--font-notosans)"],
       },
       maxWidth: {
         '2xl': '40rem',

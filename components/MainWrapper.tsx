@@ -68,12 +68,12 @@ export const MainWrapper: React.FC<PropsWithChildren> = ({ children }) => {
     return `rgb(${red}, ${green}, ${blue})`
   }
 
-  const colors = [
-    { r: 125, g: 179, b: 254 },
-    { r: 250, g: 176, b: 223 },
-    { r: 253, g: 230, b: 133 },
-    { r: 137, g: 253, b: 196 },
-  ]
+  // const colors = [
+  //   { r: 125, g: 179, b: 254 },
+  //   { r: 250, g: 176, b: 223 },
+  //   { r: 253, g: 230, b: 133 },
+  //   { r: 137, g: 253, b: 196 },
+  // ]
 
   // const colors = [
   //   { r: 216, g: 149, b: 239 },
@@ -117,6 +117,13 @@ export const MainWrapper: React.FC<PropsWithChildren> = ({ children }) => {
   //   { r: 199, g: 246, b: 52 },
   //   { r: 199, g: 246, b: 52 },
   // ]
+
+  const colors = [
+    { r: 188, g: 122, b: 249 },
+    { r: 240, g: 234, b: 210 },
+    { r: 222, g: 255, b: 242 },
+    { r: 222, g: 255, b: 242 },
+  ]
 
   const toCssRgb = (rgb: { r: number, g: number, b: number }) => (
     `rgb(${rgb.r}, ${rgb.g}, ${rgb.b})`

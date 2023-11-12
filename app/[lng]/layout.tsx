@@ -7,6 +7,21 @@ import { dir } from 'i18next'
 import "../../styles/tailwind.css"
 import { languages } from "@/i18n/settings"
 import { useAppStore } from "@/store/appStore"
+import { Source_Code_Pro, Noto_Sans } from 'next/font/google'
+import clsx from "clsx"
+
+const sourceCodePro = Source_Code_Pro({
+  subsets: ['cyrillic', 'latin'],
+  display: 'swap',
+  variable: '--font-sourcecodepro',
+});
+
+const notoSans = Noto_Sans({
+  subsets: ['cyrillic', 'latin'],
+  weight: '500',
+  display: 'swap',
+  variable: '--font-notosans',
+});
 
 export const metadata: Metadata = {
   title: 'My Page Title',
@@ -51,7 +66,14 @@ export default function RootLayout({
     <html
       lang={lng}
       dir={dir(lng)}
-      className="h-full scroll-smooth bg-white antialiased [font-feature-settings:'ss01']"
+      className={
+        clsx(
+          "h-full scroll-smooth bg-white antialiased [font-feature-settings:'ss01']",
+          //sourceCodePro.className,
+          sourceCodePro.variable,
+          notoSans.variable
+        )
+      }
     >
       <body
         // suppressHydrationWarning={true}

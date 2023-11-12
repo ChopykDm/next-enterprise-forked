@@ -9,6 +9,8 @@ import { Locales } from '@/i18n/settings';
 import { useTranslation } from '@/i18n/client';
 import { useAppStore } from '@/store/appStore';
 import { Bandge } from '@/UIComponents/Badge';
+import { SectionSubTitle } from '@/UIComponents/SectionSubTitle';
+import { SectionTitle } from '@/UIComponents/SectionTitle';
 
 function ReportingIcon() {
   const id = useId()
@@ -205,15 +207,12 @@ export function Services({ lng }: { lng: Locales }) {
     >
       <Container>
         <div className="mx-auto max-w-2xl md:text-center text-black">
-          <h2 style={{
-            fontSize: 'clamp(54px, 5.9vw, 80px)',
-          }}
-          className="font-display text-3xl tracking-tight sm:text-4xl text-black">
+          <SectionTitle>
             {t('title')}
-          </h2>
-          <p className="mt-4 text-2xl tracking-tight text-black">
+          </SectionTitle>
+          <SectionSubTitle>
             {t('subtitle')}
-          </p>
+          </SectionSubTitle>
         </div>
         <ServicesDesktop />
       </Container>

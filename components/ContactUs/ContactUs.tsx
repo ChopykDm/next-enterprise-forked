@@ -5,9 +5,17 @@ import Image from 'next/image'
 import { Container } from '@/components/Container'
 import { useScroll, animated, useSpring } from '@react-spring/web'
 import React from 'react';
+import { SectionTitle } from '@/UIComponents/SectionTitle';
+import { SectionSubTitle } from '@/UIComponents/SectionSubTitle';
+import { useTranslation } from '@/i18n/client';
+import { useAppStore } from '@/store/appStore';
+import { TextField } from '@/components/Fields'
 
 
 export function ContactUs() {
+  const lang = useAppStore.getState().lang;
+  const { t } = useTranslation(lang, 'contact-us');
+
   const containerRef = React.useRef<HTMLDivElement>(null!)
   
   const [textStyles, textApi] = useSpring(() => ({
@@ -31,25 +39,28 @@ export function ContactUs() {
 
   return (
     <section
-      id="faq"
+      id="contact-us"
       style={{ border: '1px solid black' }}
-      aria-labelledby="faq-title"
+      aria-labelledby="contact-us-title"
       className="relative overflow-hidden py-20 sm:py-32"
       ref={containerRef}
     >
       <Container className="relative">
-        <div className="mx-auto max-w-2xl lg:mx-0">
-          <h2
-            id="faq-title"
-            className="font-display text-3xl tracking-tight text-slate-900 sm:text-4xl"
-          >
-            Frequently asked questions
-          </h2>
-          <p className="mt-4 text-lg tracking-tight text-slate-700">
-            If you can’t find what you’re looking for, email our support team
-            and if you’re lucky someone will get back to you.
-          </p>
+        <div className="max-w-2xl lg:mx-0">
+          <SectionTitle>
+            <div>
+              {t('title1')}
+            </div>
+            <div className="pl-28 font-sourcecodepro">
+              {t('title2')}
+            </div>
+          </SectionTitle>
+          <SectionSubTitle className='font-notosans'>
+            {t('subtitle')}
+          </SectionSubTitle>
         </div>
+        <TextField label="dd" id="cxxc"/>
+
         <animated.div
           style={{
             clipPath: scrollYProgress.to(val => `circle(${val * 100}%)`),

@@ -11,7 +11,7 @@ import { Testimonials } from "@/components/Testimonials"
 import { Metadata } from "next"
 import { Suspense } from "react"
 import Loading from "./loading"
-import { ContactUs } from "@/components/ContactUs/Faqs"
+import { ContactUs } from "@/components/ContactUs/ContactUs"
 import { MainWrapper } from "@/components/MainWrapper"
 
 
