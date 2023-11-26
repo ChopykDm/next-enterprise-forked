@@ -10,6 +10,7 @@ import { SectionSubTitle } from '@/UIComponents/SectionSubTitle';
 import { useTranslation } from '@/i18n/client';
 import { useAppStore } from '@/store/appStore';
 import { TextField } from '@/components/Fields'
+import { RadioGroup } from '@/UIComponents/RadioCard';
 
 
 export function ContactUs() {
@@ -60,6 +61,11 @@ export function ContactUs() {
           </SectionSubTitle>
         </div>
         <TextField label="dd" id="cxxc"/>
+
+        <RadioGroup>
+          <RadioGroup.Option name="4 GB" value="4 GB" />
+          <RadioGroup.Option name="8 GB" value="8 GB" />
+        </RadioGroup>
 
         <animated.div
           style={{
