@@ -14,7 +14,7 @@ export const Trail: React.FC<PropsWithChildren<{ open: boolean }>> = ({ open, ch
     from: { opacity: 0, x: 20, height: 0 },
   })
 
-  console.log('<Trail />', { open, trail });
+  //console.log('<Trail />', { open, trail });
 
   return (
     <div>

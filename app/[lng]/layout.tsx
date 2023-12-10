@@ -76,7 +76,7 @@ export default function RootLayout({
       }
     >
       <body
-        // suppressHydrationWarning={true}
+        suppressHydrationWarning={true}
         className="flex h-full flex-col"
       >
         <link

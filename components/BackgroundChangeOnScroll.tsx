@@ -3,7 +3,7 @@
 import { useScroll, useSpring, animated } from "@react-spring/web";
 import React, { PropsWithChildren } from "react";
 
-export const MainWrapper: React.FC<PropsWithChildren> = ({ children }) => {
+export const BackgroundChangeOnScroll: React.FC<PropsWithChildren> = ({ children }) => {
   const [textStyles, textApi] = useSpring(() => ({
     y: '100%',
   }))
@@ -141,13 +141,29 @@ export const MainWrapper: React.FC<PropsWithChildren> = ({ children }) => {
   // ]
 
   //!	231	102	
-  const colors = [
-    { r: 232						, g: 253, b: 61 }, //!! 
-    { r: 171						, g: 231, b: 102 }, //!! 
+  //const colors = [
+   // { r: 232						, g: 253, b: 61 }, //!! 
+   // { r: 171						, g: 231, b: 102 }, //!! 
     //{ r: 253																														, g: 170, b: 62 },
-    { r: 158															, g: 207, b: 253 },//!! 
-    { r: 99									, g: 194, b: 115 },//!!
-  ]
+   // { r: 158															, g: 207, b: 253 },//!! 
+   // { r: 99									, g: 194, b: 115 },//!!
+  //]
+
+  // const colors = [
+  //  // { r: 232						, g: 253, b: 61 }, //!! 
+  //   { r: 61						, g: 253, b: 121 }, //!!  rgb(61 253 121)
+  //   { r: 255																														, g: 105, b: 100 },
+  //   { r: 158															, g: 207, b: 253 },//!! 
+  //   { r: 99									, g: 194, b: 115 },//!!
+  // ]
+
+  const colors = [
+    // rgb(255 204 0)
+     { r: 61						, g: 253, b: 147 }, //!!  rgb(61 253 121)
+     { r: 158															, g: 207, b: 253 },//!! 
+     { r: 183, g: 156, b: 247 }, //rgb(183 156 247)
+     { r: 99									, g: 194, b: 115 },//!!
+   ]
 
   const toCssRgb = (rgb: { r: number, g: number, b: number }) => (
     `rgb(${rgb.r}, ${rgb.g}, ${rgb.b})`
@@ -158,22 +174,22 @@ export const MainWrapper: React.FC<PropsWithChildren> = ({ children }) => {
     <animated.div
     style={{
       background: scrollYProgress.to(val => {
-        console.log(val);
+        //console.log(val);
         if (val < 0.5) {
-          console.log('11111', val);
+          //console.log('11111', val);
           return toCssRgb(colors[0])
         } else if (val < 0.67) {
-          console.log('22222', val);
+          //console.log('22222', val);
           const fraction = getFraction(0.5, 0.67, val);
           const color = calculateColorByFraction(fraction, colors[0], colors[1])
           return color;
         } else if (val < 0.75) {
-          console.log('33333', val);
+          //console.log('33333', val);
           const fraction = getFraction(0.67, 0.75, val);
           const color = calculateColorByFraction(fraction, colors[1], colors[2])
           return color;
         } else if (val < 0.9) {
-          console.log('44444', val);
+          //console.log('44444', val);
           const fraction = getFraction(0.75, 0.9, val);
           const color = calculateColorByFraction(fraction, colors[2], colors[3])
           return color;

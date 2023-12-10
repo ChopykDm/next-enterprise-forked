@@ -12,7 +12,7 @@ import { Metadata } from "next"
 import { Suspense } from "react"
 import Loading from "./loading"
 import { ContactUs } from "@/components/ContactUs/ContactUs"
-import { MainWrapper } from "@/components/MainWrapper"
+import { BackgroundChangeOnScroll } from "@/components/BackgroundChangeOnScroll"
 
 
 // TODO: add metadata localization
@@ -36,7 +36,7 @@ export default function Page({ params: { lng } }) {
       <main>
         <Suspense fallback={<Loading />}>
           <Hero lng={lng} />
-          <MainWrapper>
+          <BackgroundChangeOnScroll>
             <Services lng={lng}/>
             {/* <PrimaryFeatures />
             <SecondaryFeatures /> */}
@@ -47,7 +47,7 @@ export default function Page({ params: { lng } }) {
             {/* <Faqs /> */}
             {/* Contact Us */}
             <ContactUs />
-          </MainWrapper>
+          </BackgroundChangeOnScroll>
         </Suspense>
       </main>
       <Footer />
