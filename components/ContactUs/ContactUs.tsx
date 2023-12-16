@@ -18,13 +18,13 @@ export function ContactUs() {
   const { t } = useTranslation(lang, 'contact-us');
 
   const containerRef = React.useRef<HTMLDivElement>(null!)
-  
+
   const [textStyles, textApi] = useSpring(() => ({
     y: '100%',
   }))
 
   const { scrollYProgress } = useScroll({
-   // container: containerRef,
+    // container: containerRef,
     onChange: ({ value: { scrollYProgress } }) => {
       debugger;
       if (scrollYProgress > 0.7) {
@@ -46,7 +46,6 @@ export function ContactUs() {
       className="relative overflow-hidden py-20 sm:py-32"
       ref={containerRef}
     >
-      <div className='    border-green-500  border-8 bg-indigo-500 text-7xl'>ddddsAKALKSAKLASKLAKLASKLALKSALKS</div>
       <Container className="relative">
         <div className="max-w-2xl lg:mx-0">
           <SectionTitle>
@@ -61,7 +60,7 @@ export function ContactUs() {
             {t('subtitle')}
           </SectionSubTitle>
         </div>
-        <TextField label="dd" id="cxxc"/>
+        <TextField label="dd" id="cxxc" />
 
         <RadioGroup>
           <RadioGroup.Option name="4 GB" value="4 GB" />

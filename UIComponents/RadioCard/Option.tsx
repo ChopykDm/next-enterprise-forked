@@ -22,9 +22,9 @@ export const RadioOption: RadioOptionComponentType = ({
           //option.inStock ? 'cursor-pointer focus:outline-none' : 'cursor-not-allowed opacity-25',
           active ? 'ring-2 ring-indigo-600 ring-offset-2' : '',
           checked
-            ? 'bg-indigo-600 text-white hover:bg-indigo-500'
-            : 'ring-1 ring-inset ring-gray-300 bg-white text-gray-900 hover:bg-gray-50',
-          'flex items-center justify-center border-2 border-red-500  rounded-md p-3 text-sm font-semibold uppercase sm:flex-1'
+            ? 'bg-black text-white hover:bg-gray-800'
+            : 'bg-transparent ring-1 ring-inset ring-gray-300 text-gray-900 hover:bg-gray-50',
+          'flex items-center justify-center border-2 border-black rounded-md p-3 text-sm font-semibold uppercase sm:flex-1'
         )
       }
     >

@@ -26,7 +26,7 @@ const RadioGroup: RadioGroupComponentType = ({
   const [mem, setMem] = useState(memoryOptions[2])
 
   return (
-    <div className=" ">
+    <div>
       <div className="flex items-center justify-between">
         <h2 className="text-sm font-medium leading-6 text-gray-900">RAM</h2>
         <a href="#" className="text-sm font-medium leading-6 text-indigo-600 hover:text-indigo-500   ">
