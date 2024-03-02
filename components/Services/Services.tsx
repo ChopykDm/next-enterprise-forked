@@ -95,7 +95,7 @@ function ServiceBlock({ serviceBlock, className, ...props }: {
     <div
       className={clsx(
         className,
-        "relative text-left text-white bg-black p-6 rounded-2xl",
+        "relative text-left text-white bg-black p-6 rounded-2xl shadow-brutal",
         //"focus:-translate-y-1 focus:scale-110"
         )}
       {...props}

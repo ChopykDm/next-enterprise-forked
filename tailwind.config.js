@@ -49,6 +49,11 @@ module.exports = {
         secondary: colors.gray,
         accent: colors.pink,
       },
+      boxShadow: {
+        'brutal': '3px 5px black',
+        'brutal-w': '3px 5px white',
+        'brutal-hover': '4px 7px black',
+      },
     },
   },
   plugins: [require('@tailwindcss/forms')],
